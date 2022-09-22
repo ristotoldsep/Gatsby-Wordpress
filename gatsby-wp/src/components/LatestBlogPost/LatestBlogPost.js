@@ -21,7 +21,6 @@ const LatestBlogPost = () => {
                 <h5>Read More</h5>
             </Link>
         </Wrapper>
-
     )
 }
 
