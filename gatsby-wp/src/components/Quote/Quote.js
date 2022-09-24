@@ -5,7 +5,7 @@ import { Wrapper, Content } from "./Quote.styles"
 
 const Quote = () => {
     const data = useQuoteQuery()
-    console.log(data);
+    // console.log(data);
 
     return (
         <Wrapper>

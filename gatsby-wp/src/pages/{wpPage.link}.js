@@ -22,8 +22,11 @@ const PageContent = styled.article`
     margin: 20px 0 0 0;
 `
 
-const PageTemplate = () => (
+const PageTemplate = ({ data }) => (
   <Layout>
+    {
+        console.log(data)
+    }
     <p>PageHero</p>
     <Wrapper>
         <p>Sidebar</p>
@@ -33,3 +36,51 @@ const PageTemplate = () => (
 )
 
 export default PageTemplate
+
+export const pageQuery = graphql`
+  query($id: String!) {
+    wpPage(id: { eq: $id }) {
+      id
+      title
+      content
+      status
+      featuredImage {
+        node {
+          id
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: TRACED_SVG, width: 1920)
+            } 
+          }
+        }
+      }
+      wpChildren {
+        nodes {
+          ... on WpPage {
+            id
+            uri
+            title
+          }
+        }
+      }
+      wpParent {
+        node {
+          ... on WpPage {
+            id
+            title
+            uri
+            wpChildren {
+              nodes {
+                ... on WpPage {
+                  id
+                  title
+                  uri
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
