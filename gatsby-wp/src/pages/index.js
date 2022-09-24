@@ -9,7 +9,7 @@ import About from "../components/About/About"
 
 
 const IndexPage = () => (
-    <Layout> 
+  <Layout> 
       <SEO title="Home" />
       <Hero />
       <CTAArea />
@@ -20,6 +20,5 @@ const IndexPage = () => (
       
 
 )
-
 
 export default IndexPage

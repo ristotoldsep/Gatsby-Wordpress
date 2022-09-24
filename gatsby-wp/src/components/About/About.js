@@ -9,12 +9,12 @@ const About = () => {
     const imageData = data.wpPage.featuredImage.node.localFile.publicURL
 
     return (
-        <Wrapper>
-            <AboutImage image={ imageData } />
-            <div className="about-text">
-                <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
-            </div>
-        </Wrapper>
+      <Wrapper>
+        <AboutImage image={imageData} />
+        <div className="about-text">
+          <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
+        </div>
+      </Wrapper>
     )
 }
 
