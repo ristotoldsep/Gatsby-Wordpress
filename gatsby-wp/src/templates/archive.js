@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/Layout"
 import BreadCrumb from "../components/BreadCrumb/BreadCrumb"
 import ArchiveSidebar from "../components/ArchiveSidebar/ArchiveSidebar"
+import Pagination from "../components/Pagination/Pagination"
 // Styles
 import { Wrapper, ContentWrapper, PageContent, StyledH2, StyledDate, StyledReadMore } from "./archive.styles"
 
@@ -48,6 +49,11 @@ const archiveTemplate = ({
                     </article>
                 ))
             }
+            <Pagination 
+                catUri={ catUri }
+                page={ currentPage }
+                totalPages={ numPages }
+            />
         </PageContent>
       </ContentWrapper>
     </Wrapper>
