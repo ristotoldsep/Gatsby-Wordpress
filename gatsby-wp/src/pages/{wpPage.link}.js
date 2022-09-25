@@ -4,6 +4,7 @@ import styled from "styled-components"
 // Components
 import Layout from "../components/Layout/Layout"
 import PageHero from "../components/PageHero/PageHero"
+import BreadCrumb from "../components/BreadCrumb/BreadCrumb"
 
 const Wrapper = styled.div`
     max-width: 1180px;
@@ -25,12 +26,21 @@ const PageContent = styled.article`
 
 const PageTemplate = ({ data }) => (
   <Layout>
-    { data.wpPage.featuredImage ? (
-        <PageHero img={ data.wpPage.featuredImage.node.localFile.childImageSharp.gatsbyImageData } />
-    ) : null }
+    {data.wpPage.featuredImage ? (
+      <PageHero
+        img={
+          data.wpPage.featuredImage.node.localFile.childImageSharp
+            .gatsbyImageData
+        }
+      />
+    ) : null}
     <Wrapper>
-        <p>Sidebar</p>
-        <p>Content</p>
+      <BreadCrumb
+        parent={ data.wpPage.wpParent && data.wpPage.wpParent.node }
+        title={ data.wpPage.title }
+      />
+      <p>Sidebar</p>
+      <p>Content</p>
     </Wrapper>
   </Layout>
 )
@@ -41,6 +51,7 @@ export const pageQuery = graphql`
   query($id: String!) {
     wpPage(id: { eq: $id }) {
       id
+      link
       title
       content
       status

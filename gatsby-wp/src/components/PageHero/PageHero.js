@@ -10,7 +10,7 @@ const PageHero = ({ img }) => (
     <StyledImg image={img} alt="Page Hero" />
     <Wrapper>
       <HeroWrapper>
-            <p>Uauuua</p>
+            {/* <p>Uauuua</p> */}
         </HeroWrapper>
     </Wrapper>
   </>
